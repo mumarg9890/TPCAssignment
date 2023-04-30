@@ -1,0 +1,62 @@
+<div class="example-container">
+  <div class="form-container">
+    <form [formGroup]="flightForm" (submit)="submit()">
+    
+     <div class="row">
+        <mat-form-field class="form-field col-sm-12" appearance="outline">
+          <mat-label> Air Line
+          </mat-label>
+          <input matInput formControlName="airLine" required>
+          <mat-error *ngIf="flightForm.controls.airLine.touched && flightForm.controls.airLine.invalid">
+            <span *ngIf="flightForm.controls.airLine.errors.required">This field is mandatory.</span>
+          </mat-error>
+        </mat-form-field>
+      </div>
+      <div class="row">
+        <mat-form-field class="form-field col-sm-12" appearance="outline">
+          <mat-label> Plane
+          </mat-label>
+          <input matInput formControlName="plane" type="text" required>
+          <mat-error *ngIf="flightForm.controls.plane.touched && flightForm.controls.plane.invalid">
+            <span *ngIf="flightForm.controls.plane.errors.required">This field is mandatory.</span>
+          </mat-error>
+        </mat-form-field>
+      </div>
+      <div class="row">
+        <mat-form-field class="form-field col-sm-12" appearance="outline">
+          <mat-label> Origin
+          </mat-label>
+          <input matInput formControlName="origin" type="text" required>
+          <mat-error *ngIf="flightForm.controls.origin.touched && flightForm.controls.origin.invalid">
+            <span *ngIf="flightForm.controls.origin.errors.required">This field is mandatory.</span>
+          </mat-error>
+        </mat-form-field>
+      </div>
+      <div class="row">
+        <mat-form-field class="form-field col-sm-12" appearance="outline">
+          <mat-label> Destinaiton
+          </mat-label>
+          <input matInput formControlName="destinaiton" type="text" required>
+          <mat-error *ngIf="flightForm.controls.destinaiton.touched && flightForm.controls.destinaiton.invalid">
+            <span *ngIf="flightForm.controls.destinaiton.errors.required">This field is mandatory.</span>
+          </mat-error>
+        </mat-form-field>
+      </div> 
+     <div class="row">
+        <mat-form-field class="form-field col-sm-12" appearance="outline">
+          <mat-label> Flight Hours
+          </mat-label>
+          <input matInput formControlName="flightHOurs" type="text" required>
+          <mat-error *ngIf="flightForm.controls.flightHOurs.touched && flightForm.controls.flightHOurs.invalid">
+            <span *ngIf="flightForm.controls.flightHOurs.errors.required">This field is mandatory.</span>
+          </mat-error>
+        </mat-form-field>
+      </div>
+     
+     <div style="text-align: right;">
+      <button mat-raised-button color="primary" type="submit">{{editMode ? 'Update' :' ADD'}}</button>
+     </div>
+            
+    </form>
+  </div>
+</div>

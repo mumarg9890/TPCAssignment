@@ -1,0 +1,60 @@
+<div class="example-container">
+  <div class="form-container">
+    <form [formGroup]="loginForm" (submit)="submit()">
+    
+    <div class="row">
+        <mat-form-field class="form-field col-sm-12" appearance="outline">
+          <mat-label>Select</mat-label>
+          <mat-select formControlName="UserType">
+            <mat-option value="1">Admin</mat-option>
+            <mat-option value="2">Manager</mat-option>
+          </mat-select>
+          <mat-error *ngIf="loginForm.controls.UserType.touched && loginForm.controls.UserType.invalid">
+            <span *ngIf="loginForm.controls.UserType.errors.required">This field is mandatory.</span>
+            <span *ngIf="loginForm.controls.UserType.errors.pattern">This field is invalid.</span>
+          </mat-error>
+        </mat-form-field>
+    </div>
+      
+
+      <div class="row">
+        <mat-form-field class="form-field col-sm-12" appearance="outline">
+          <mat-label> E-mail
+          </mat-label>
+          <input matInput formControlName="email" required>
+          <mat-error *ngIf="loginForm.controls.email.touched && loginForm.controls.email.invalid">
+            <span *ngIf="loginForm.controls.email.errors.required">This field is mandatory.</span>
+            <span *ngIf="loginForm.controls.email.errors.pattern">This field is invalid.</span>
+          </mat-error>
+        </mat-form-field>
+      </div>
+      <div class="row">
+        <mat-form-field class="form-field col-sm-12" appearance="outline">
+          <mat-label> Password
+          </mat-label>
+          <input matInput formControlName="Password" type="password" required>
+          <mat-error *ngIf="loginForm.controls.Password.touched && loginForm.controls.Password.invalid">
+            <span *ngIf="loginForm.controls.Password.errors.required">This field is mandatory.</span>
+            <span *ngIf="loginForm.controls.Password.errors.pattern">Password must contain atleast 1 digit 1 special character and length must not less than 8.</span>
+          </mat-error>
+        </mat-form-field>
+      </div>
+      <div class="row">
+        <mat-form-field class="form-field col-sm-12" appearance="outline">
+          <mat-label> Confirm Password
+          </mat-label>
+          <input matInput formControlName="ConfirmPassword" type="password" required>
+          <mat-error *ngIf="loginForm.controls.ConfirmPassword.touched && loginForm.controls.ConfirmPassword.invalid">
+            <span *ngIf="loginForm.controls.ConfirmPassword.errors.required">This field is mandatory.</span>
+            <div *ngIf="loginForm.controls.ConfirmPassword.errors.confirmedValidator">Password and Confirm Password must be match.</div>
+          </mat-error>
+        </mat-form-field>
+      </div>
+     <div style="text-align: right;">
+      <button mat-raised-button color="primary" type="submit">Register</button>
+     </div>
+      
+      
+    </form>
+  </div>
+</div>

@@ -1,0 +1,44 @@
+<mat-card style="height: 98%">
+
+  <div class="row">
+    <div class="col-sm-12" style="text-align:right;">
+        <!-- <button class="btn btn-primary" [routerLink]="[/AddFlight]"> Add New</button> -->
+        <div *ngIf="authAervice.authenticated && authAervice.type==2">
+          <a routerLink="/AddFlight"><button class="btn btn-success pull-right" > Add New</button></a>
+        </div>
+       
+    </div>
+  </div>
+  <div style="height: 95%; overflow: auto;">
+      <table class="table">
+        <thead>
+          <tr>
+            <th style="display:none;">id</th>
+            <th>Air Lane</th>
+            <th>Plane</th>
+            <th>Origin</th>
+            <th>Destination</th>
+            <div *ngIf="authAervice.authenticated">
+              <th>Action</th>
+            </div>
+           
+        </thead>
+
+        <tr *ngFor="let data of flights">
+          <td style="display:none;">{{data.id}}</td>
+          <td>{{data.airLine}}</td>
+          <td>{{data.plane}}</td>
+          <td>{{data.origin}}</td>
+          <td>{{data.destinaiton}}</td>
+          <td>
+            <div *ngIf="authAervice.authenticated">
+              <a  (click)="DeleteFlight(data)"> Delete </a> |
+              <a *ngIf="authAervice.authenticated && authAervice.type==2" [routerLink]="['/UpdateFlight/',data.id ]">Update</a>
+            </div>
+           
+          </td>
+            
+        </table>
+    </div>
+
+</mat-card>
